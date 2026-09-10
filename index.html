@@ -1,1 +1,290 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Father's Day 💙</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+<div class="decorations">
+    <span>✦</span>
+    <span>✧</span>
+    <span>♡</span>
+    <span>✦</span>
+    <span>✧</span>
+</div>
+
+<!-- OPENING SCREEN -->
+
+<section id="openingScreen" class="opening-screen">
+
+    <div class="opening-card">
+
+        <div class="opening-icon">💙</div>
+
+        <div class="english-title">
+            Happy Father's Day
+        </div>
+
+        <div class="opening-subtitle">
+            तपाईंका लागि एउटा विशेष सरप्राइज...
+        </div>
+
+        <h1>
+            बुबा,<br>
+            यो सानो सरप्राइज तपाईंका लागि 💙
+        </h1>
+
+        <p>
+            कृपया तलको बटन थिच्नुहोस्...
+        </p>
+
+        <button id="surpriseButton">
+            सरप्राइज खोल्नुहोस् 💙
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- SURPRISE PAGE -->
+
+<section id="surprisePage" class="surprise-page">
+
+    <div class="content">
+
+        <div class="top-icon">💙</div>
+
+        <h2>
+            बुबा, यो तपाईंका लागि हो
+        </h2>
+
+        <p class="intro">
+            केही तस्बिरहरू, केही सम्झनाहरू,
+            अनि तपाईंका लागि केही मनका शब्दहरू...
+        </p>
+
+
+        <!-- PHOTO 1 -->
+
+        <section class="memory reveal">
+
+            <div class="photo-card">
+
+                <div class="photo-placeholder">
+                    📸
+                    <strong>PHOTO 1</strong>
+                </div>
+
+                <div class="caption">
+                    हाम्रो एउटा विशेष सम्झना 💙
+                </div>
+
+            </div>
+
+            <p>
+                यहाँ तपाईंका लागि पहिलो सन्देश आउनेछ।
+            </p>
+
+        </section>
+
+
+        <!-- PHOTO 2 -->
+
+        <section class="memory reveal">
+
+            <div class="photo-card">
+
+                <div class="photo-placeholder">
+                    📸
+                    <strong>PHOTO 2</strong>
+                </div>
+
+                <div class="caption">
+                    एउटा मिठो पल 💙
+                </div>
+
+            </div>
+
+            <p>
+                यहाँ अर्को विशेष सम्झना र सन्देश आउनेछ।
+            </p>
+
+        </section>
+
+
+        <!-- PHOTO 3 -->
+
+        <section class="memory reveal">
+
+            <div class="photo-card">
+
+                <div class="photo-placeholder">
+                    📸
+                    <strong>PHOTO 3</strong>
+                </div>
+
+                <div class="caption">
+                    त्यो यादगार दिन 💙
+                </div>
+
+            </div>
+
+            <p>
+                यहाँ तपाईंको अर्को सम्झना आउनेछ।
+            </p>
+
+        </section>
+
+
+        <!-- PHOTO 4 -->
+
+        <section class="memory reveal">
+
+            <div class="photo-card">
+
+                <div class="photo-placeholder">
+                    📸
+                    <strong>PHOTO 4</strong>
+                </div>
+
+                <div class="caption">
+                    अमूल्य सम्झना 💙
+                </div>
+
+            </div>
+
+            <p>
+                यहाँ अर्को मन छुने सन्देश आउनेछ।
+            </p>
+
+        </section>
+
+
+        <!-- PHOTO 5 -->
+
+        <section class="memory reveal">
+
+            <div class="photo-card">
+
+                <div class="photo-placeholder">
+                    📸
+                    <strong>PHOTO 5</strong>
+                </div>
+
+                <div class="caption">
+                    सधैं सम्झिरहने पल 💙
+                </div>
+
+            </div>
+
+            <p>
+                यहाँ अन्तिम फोटोको सन्देश आउनेछ।
+            </p>
+
+        </section>
+
+
+        <!-- FINAL MESSAGE -->
+
+        <section class="final-card reveal">
+
+            <div class="final-icon">
+                💙
+            </div>
+
+            <h2>
+                बुबा...
+            </h2>
+
+            <p>
+                तपाईं मेरो जीवनको एउटा ठूलो प्रेरणा हुनुहुन्छ।
+            </p>
+
+            <p>
+                तपाईं सधैं खुसी, स्वस्थ र मुस्कुराइरहनुहोस्।
+            </p>
+
+            <div class="final-title">
+                Happy Father's Day, Dad! 💙
+            </div>
+
+            <div class="signature">
+                तपाईंको छोराबाट 💙
+            </div>
+
+        </section>
+
+    </div>
+
+</section>
+
+
+<script>
+
+function openSurprise() {
+
+    const opening =
+        document.getElementById("openingScreen");
+
+    const page =
+        document.getElementById("surprisePage");
+
+    opening.classList.add("hide");
+
+    setTimeout(function () {
+
+        opening.style.display = "none";
+
+        page.classList.add("show");
+
+        window.scrollTo(0, 0);
+
+    }, 650);
+}
+
+
+document
+    .getElementById("surpriseButton")
+    .addEventListener("click", openSurprise);
+
+
+const revealItems =
+    document.querySelectorAll(".reveal");
+
+
+const observer =
+    new IntersectionObserver(
+        function(entries) {
+
+            entries.forEach(function(entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("visible");
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+
+revealItems.forEach(function(item) {
+    observer.observe(item);
+});
+
+</script>
+
+</body>
+</html>
