@@ -12,20 +12,27 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
+    width: 100%;
     overflow-x: hidden;
+
     font-family: "Noto Sans Devanagari", "Segoe UI", Arial, sans-serif;
-    color: #f7fbff;
+
+    color: #f8f1df;
+
     background:
-        linear-gradient(
-            180deg,
-            #071321,
-            #0d2035,
-            #071321
+        radial-gradient(
+            circle at 50% 0%,
+            #3a2a0d 0%,
+            #17120a 30%,
+            #080808 70%,
+            #030303 100%
         );
 }
 
 
-/* DECORATIONS */
+/* =========================
+   LUXURY DECORATIONS
+   ========================= */
 
 .decorations {
     position: fixed;
@@ -36,10 +43,17 @@ body {
 
 .decorations span {
     position: absolute;
+
     font-family: Georgia, serif;
     font-size: 24px;
-    opacity: 0.22;
-    animation: float 4s ease-in-out infinite;
+
+    color: #d4af37;
+    opacity: 0.3;
+
+    text-shadow:
+        0 0 12px rgba(212, 175, 55, 0.4);
+
+    animation: luxuryFloat 4s ease-in-out infinite;
 }
 
 .decorations span:nth-child(1) {
@@ -48,9 +62,9 @@ body {
 }
 
 .decorations span:nth-child(2) {
-    top: 28%;
+    top: 27%;
     right: 9%;
-    animation-delay: 0.7s;
+    animation-delay: 0.6s;
 }
 
 .decorations span:nth-child(3) {
@@ -68,10 +82,10 @@ body {
 .decorations span:nth-child(5) {
     bottom: 10%;
     left: 12%;
-    animation-delay: 2.3s;
+    animation-delay: 2.4s;
 }
 
-@keyframes float {
+@keyframes luxuryFloat {
     0%, 100% {
         transform: translateY(0) rotate(-6deg);
     }
@@ -82,27 +96,93 @@ body {
 }
 
 
-/* OPENING */
+/* =========================
+   OPENING SCREEN
+   ========================= */
 
 .opening-screen {
     position: fixed;
     inset: 0;
+
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+
     z-index: 100;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     padding: 20px;
 
     background:
         radial-gradient(
             circle at 50% 15%,
-            #1d5279 0%,
-            #0d2d49 45%,
-            #071321 100%
+            #5b4616 0%,
+            #241b0d 38%,
+            #0b0b0b 75%,
+            #030303 100%
         );
 
     opacity: 1;
-    transition: opacity 0.65s ease;
+
+    transition:
+        opacity 0.7s ease;
+}
+
+.opening-screen::before {
+    content: "✦";
+
+    position: absolute;
+
+    top: 12%;
+    left: 18%;
+
+    font-size: 24px;
+
+    color: #d4af37;
+    opacity: 0.28;
+
+    animation:
+        goldSparkle 3s ease-in-out infinite;
+}
+
+.opening-screen::after {
+    content: "✧";
+
+    position: absolute;
+
+    right: 18%;
+    bottom: 13%;
+
+    font-size: 25px;
+
+    color: #d4af37;
+    opacity: 0.24;
+
+    animation:
+        goldSparkleReverse 4s ease-in-out infinite;
+}
+
+@keyframes goldSparkle {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-16px) scale(1.25);
+    }
+}
+
+@keyframes goldSparkleReverse {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(16px) scale(1.2);
+    }
 }
 
 .opening-screen.hide {
@@ -110,43 +190,77 @@ body {
     pointer-events: none;
 }
 
+
+/* =========================
+   OPENING CARD
+   ========================= */
+
 .opening-card {
     width: 100%;
-    max-width: 440px;
-    padding: 48px 24px 42px;
+    max-width: 450px;
+
+    padding: 50px 25px 44px;
+
     text-align: center;
 
-    background: rgba(255, 255, 255, 0.07);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(35, 35, 35, 0.92),
+            rgba(11, 11, 11, 0.92)
+        );
+
+    border:
+        1px solid rgba(212, 175, 55, 0.5);
+
     border-radius: 28px;
 
     box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.5);
+        0 30px 80px rgba(0, 0, 0, 0.75),
+        0 0 40px rgba(212, 175, 55, 0.08);
 
-    backdrop-filter: blur(14px);
+    backdrop-filter: blur(18px);
 
-    animation: cardEnter 1s ease both;
+    animation:
+        luxuryEnter 1s ease both;
 }
 
-@keyframes cardEnter {
+@keyframes luxuryEnter {
     from {
         opacity: 0;
-        transform: translateY(30px) scale(0.95);
+        transform:
+            translateY(35px)
+            scale(0.94);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform:
+            translateY(0)
+            scale(1);
     }
 }
 
+
+/* =========================
+   OPENING ICON
+   ========================= */
+
 .opening-icon {
     font-size: 68px;
-    margin-bottom: 12px;
-    animation: pulse 1.7s ease-in-out infinite;
+
+    margin-bottom: 14px;
+
+    animation:
+        goldHeartBeat 1.7s ease-in-out infinite;
+
+    filter:
+        drop-shadow(
+            0 0 18px rgba(212, 175, 55, 0.45)
+        );
 }
 
-@keyframes pulse {
+@keyframes goldHeartBeat {
     0%, 100% {
         transform: scale(1);
     }
@@ -156,137 +270,253 @@ body {
     }
 }
 
+
+/* =========================
+   OPENING TEXT
+   ========================= */
+
 .english-title {
-    font-size: 28px;
+    font-size: 29px;
     font-weight: 800;
+
+    color: #f3d77a;
+
+    letter-spacing: 0.3px;
+
+    text-shadow:
+        0 0 18px rgba(212, 175, 55, 0.18);
 }
 
 .opening-subtitle {
     margin-top: 8px;
+
     font-size: 15px;
-    opacity: 0.7;
+
+    color: #ddd4bd;
+
+    opacity: 0.75;
 }
 
 .opening-card h1 {
     margin: 25px 0 0;
+
     font-size: 27px;
-    line-height: 1.55;
+    line-height: 1.6;
+
+    color: #fffaf0;
 }
 
 .opening-card p {
     margin-top: 20px;
+
     font-size: 16px;
-    opacity: 0.7;
+
+    color: #d5cbb4;
+
+    opacity: 0.72;
 }
 
 
-/* BUTTON */
+/* =========================
+   LUXURY BUTTON
+   ========================= */
 
 .opening-card button {
+    position: relative;
+
+    overflow: hidden;
+
     width: 100%;
+
     margin-top: 18px;
+
     padding: 16px 20px;
 
     border: none;
     border-radius: 999px;
 
-    background: #f4f9ff;
-    color: #0b2942;
+    background:
+        linear-gradient(
+            135deg,
+            #f8e7a7,
+            #d4af37,
+            #b88916
+        );
+
+    color: #171107;
 
     font-size: 16px;
-    font-weight: 800;
+    font-weight: 900;
 
     cursor: pointer;
 
     box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.3);
+        0 10px 30px rgba(212, 175, 55, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
 
     transition:
         transform 0.2s ease,
         box-shadow 0.2s ease;
 }
 
-.opening-card button:hover {
-    transform: translateY(-3px);
-    box-shadow:
-        0 15px 35px rgba(0, 0, 0, 0.4);
-}
+.opening-card button::before {
+    content: "";
 
-.opening-card button:active {
-    transform: scale(0.96);
-}
+    position: absolute;
 
+    top: 0;
+    left: -120%;
 
-/* SURPRISE PAGE */
-
-.surprise-page {
-    display: none;
-    width: 100%;
-    min-height: 100vh;
-    padding: 55px 18px 90px;
+    width: 60%;
+    height: 100%;
 
     background:
         linear-gradient(
-            180deg,
-            #071321,
-            #0d2035,
-            #071321
+            110deg,
+            transparent,
+            rgba(255, 255, 255, 0.65),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    animation:
+        goldShine 3.2s ease-in-out infinite;
+}
+
+.opening-card button:hover {
+    transform:
+        translateY(-3px)
+        scale(1.01);
+
+    box-shadow:
+        0 15px 40px rgba(212, 175, 55, 0.32);
+}
+
+.opening-card button:active {
+    transform:
+        scale(0.96);
+}
+
+@keyframes goldShine {
+    0%, 55% {
+        left: -120%;
+    }
+
+    75%, 100% {
+        left: 150%;
+    }
+}
+
+
+/* =========================
+   SURPRISE PAGE
+   ========================= */
+
+.surprise-page {
+    display: none;
+
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 55px 18px 95px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            #3b2b10 0%,
+            #15110a 25%,
+            #070707 62%,
+            #020202 100%
         );
 }
 
 .surprise-page.show {
     display: block;
-    animation: pageEnter 0.8s ease both;
+
+    animation:
+        secondPageEnter 0.9s ease both;
 }
 
-@keyframes pageEnter {
+@keyframes secondPageEnter {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform:
+            translateY(20px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform:
+            translateY(0);
     }
 }
 
 
-/* CONTENT */
+/* =========================
+   CONTENT
+   ========================= */
 
 .content {
     width: 100%;
-    max-width: 620px;
+    max-width: 630px;
+
     margin: 0 auto;
+
     text-align: center;
 }
 
 .top-icon {
-    font-size: 46px;
+    font-size: 47px;
+
     margin-bottom: 10px;
-    animation: pulse 1.8s ease-in-out infinite;
+
+    animation:
+        goldHeartBeat 1.8s ease-in-out infinite;
+
+    filter:
+        drop-shadow(
+            0 0 16px rgba(212, 175, 55, 0.35)
+        );
 }
 
 .content > h2 {
     margin: 0;
+
     font-size: 30px;
+
     line-height: 1.4;
+
+    color: #f1d477;
+
+    text-shadow:
+        0 0 18px rgba(212, 175, 55, 0.12);
 }
 
 .intro {
     max-width: 520px;
-    margin: 15px auto 75px;
+
+    margin: 15px auto 78px;
+
     font-size: 16px;
+
     line-height: 1.9;
-    opacity: 0.72;
+
+    color: #ddd3ba;
+
+    opacity: 0.76;
 }
 
 
-/* MEMORY */
+/* =========================
+   MEMORIES
+   ========================= */
 
 .memory {
     width: 100%;
-    margin-bottom: 95px;
+
+    margin-bottom: 100px;
 
     display: flex;
     flex-direction: column;
@@ -296,21 +526,28 @@ body {
 .memory p {
     width: 100%;
     max-width: 540px;
+
     margin: 30px auto 0;
+
     padding: 0 8px;
 
     font-size: 17px;
+
     line-height: 2;
 
-    color: #eaf3fa;
+    color: #eee5d2;
 }
 
 
-/* REVEAL */
+/* =========================
+   SCROLL REVEAL
+   ========================= */
 
 .reveal {
     opacity: 0;
-    transform: translateY(45px);
+
+    transform:
+        translateY(45px);
 
     transition:
         opacity 0.9s ease,
@@ -319,23 +556,38 @@ body {
 
 .reveal.visible {
     opacity: 1;
-    transform: translateY(0);
+
+    transform:
+        translateY(0);
 }
 
 
-/* PHOTO CARDS */
+/* =========================
+   LUXURY PHOTO CARDS
+   ========================= */
 
 .photo-card {
     width: min(88vw, 370px);
-    padding: 12px 12px 22px;
 
-    background: #f7fbff;
-    color: #173047;
+    padding: 10px 10px 22px;
 
-    border-radius: 8px;
+    background:
+        linear-gradient(
+            145deg,
+            #f7edcf,
+            #d7bd72
+        );
+
+    color: #20170a;
+
+    border:
+        1px solid rgba(212, 175, 55, 0.7);
+
+    border-radius: 6px;
 
     box-shadow:
-        0 20px 45px rgba(0, 0, 0, 0.4);
+        0 22px 50px rgba(0, 0, 0, 0.7),
+        0 0 25px rgba(212, 175, 55, 0.08);
 
     transition:
         transform 0.3s ease,
@@ -343,10 +595,13 @@ body {
 }
 
 .photo-card:hover {
-    transform: translateY(-6px) scale(1.02);
+    transform:
+        translateY(-7px)
+        scale(1.02);
 
     box-shadow:
-        0 28px 55px rgba(0, 0, 0, 0.5);
+        0 30px 60px rgba(0, 0, 0, 0.78),
+        0 0 30px rgba(212, 175, 55, 0.12);
 }
 
 .photo-placeholder {
@@ -355,90 +610,143 @@ body {
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 
     background:
         linear-gradient(
             145deg,
-            #dce8f1,
-            #bfceda
+            #201b11,
+            #0d0c09
         );
 
-    border: 2px dashed #8ea4b5;
+    border:
+        2px dashed #b9932e;
 
-    color: #3b5366;
+    color: #d4af37;
 
     font-size: 42px;
+
+    box-shadow:
+        inset 0 0 25px rgba(212, 175, 55, 0.05);
 }
 
 .photo-placeholder strong {
     margin-top: 12px;
+
     font-size: 18px;
+
     letter-spacing: 1px;
+
+    color: #e4c35d;
 }
 
 .caption {
-    padding-top: 13px;
+    padding-top: 14px;
+
     font-size: 16px;
-    font-weight: 600;
+
+    font-weight: 700;
+
+    color: #20170b;
 }
 
 
-/* FINAL CARD */
+/* =========================
+   FINAL CARD
+   ========================= */
 
 .final-card {
     width: 100%;
-    margin-top: 35px;
-    padding: 45px 20px 48px;
+
+    margin-top: 40px;
+
+    padding: 48px 20px 50px;
+
+    border:
+        1px solid rgba(212, 175, 55, 0.32);
 
     border-radius: 28px;
 
     background:
         linear-gradient(
             145deg,
-            #123854,
-            #0c1c2a
+            #2c220e,
+            #12100b,
+            #080808
         );
 
     box-shadow:
-        0 20px 45px rgba(0, 0, 0, 0.4);
+        0 25px 55px rgba(0, 0, 0, 0.65),
+        inset 0 1px 0 rgba(212, 175, 55, 0.12);
 }
 
 .final-icon {
-    font-size: 58px;
+    font-size: 60px;
+
     margin-bottom: 8px;
-    animation: pulse 1.6s ease-in-out infinite;
+
+    animation:
+        goldHeartBeat 1.6s ease-in-out infinite;
+
+    filter:
+        drop-shadow(
+            0 0 18px rgba(212, 175, 55, 0.38)
+        );
 }
 
 .final-card h2 {
     margin: 0 0 18px;
-    font-size: 31px;
+
+    font-size: 32px;
+
+    color: #f0d46d;
 }
 
 .final-card p {
     max-width: 500px;
+
     margin: 0 auto 20px;
+
     font-size: 17px;
+
     line-height: 1.9;
+
+    color: #eee6d5;
 }
 
 .final-title {
     margin-top: 30px;
+
     font-size: 22px;
-    font-weight: 800;
+    font-weight: 900;
+
+    color: #e0bd49;
+
+    text-shadow:
+        0 0 18px rgba(212, 175, 55, 0.18);
 }
 
 .signature {
     margin-top: 32px;
+
     font-size: 14px;
-    opacity: 0.6;
+
+    color: #c9b98e;
+
+    opacity: 0.72;
 }
 
 
-/* MOBILE */
+/* =========================
+   MOBILE
+   ========================= */
 
 @media (max-width: 480px) {
+
+    .decorations span {
+        font-size: 17px;
+    }
 
     .opening-card {
         padding: 40px 18px 35px;
@@ -457,7 +765,7 @@ body {
     }
 
     .surprise-page {
-        padding: 42px 15px 70px;
+        padding: 42px 15px 72px;
     }
 
     .content > h2 {
@@ -473,7 +781,7 @@ body {
     }
 
     .final-card {
-        padding: 38px 16px 46px;
+        padding: 40px 16px 46px;
     }
 
     .final-title {
